@@ -20,6 +20,8 @@ import { NavigationPage1Component } from './navigation-page1/navigation-page1.co
 import { NavigationPage2Component } from './navigation-page2/navigation-page2.component';
 import { NavigationPage3Component } from './navigation-page3/navigation-page3.component';
 import { AlertComponent } from './alert/alert.component';
+import { CanActivateGuard } from './can-activate';
+import { CanActivateChildrenGuard } from './can-activate-children';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -52,14 +54,24 @@ const routes: Routes = [
   {
     path: 'nested-outlet',
     component: NestedOutletComponent,
+    // canActivate: [CanActivateGuard] ,
+    canDeactivate: [CanActivateGuard],
+    // canActivateChild: [CanActivateChildrenGuard],
     children: [
       {
         path: 'page',
-        component: NestedOutletPageComponent
+        component: NestedOutletPageComponent,
+        // canDeactivate: [CanActivateGuard],
       },
       {
         path: 'page2',
-        component: NestedOutletPage2Component
+        component: NestedOutletPage2Component,
+        // canDeactivate: [CanActivateGuard],
+      },
+      {
+        path: 'page2',
+        component: NestedOutletPage2Component,
+        outlet: 'secondary',
       }
     ]
   }

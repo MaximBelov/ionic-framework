@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AnimationBuilder, AnimationController } from '@ionic/angular';
+import { AnimationBuilder, AnimationController, AngularDelegate } from '@ionic/angular';
 
 @Component({
   selector: 'app-home-page',
@@ -21,5 +21,11 @@ export class HomePageComponent {
     return animation.addAnimation([enteringAnimation, leavingAnimation]);
   };
 
-  constructor(private animationCtrl: AnimationController) {}
+  constructor(private animationCtrl: AnimationController, private angularDelegate: AngularDelegate) {
+    // console.log(this.angularDelegate);
+  }
+
+  ionViewWillEnter() {
+    // console.log('HomePageComponent ionViewWillEnter');
+  }
 }

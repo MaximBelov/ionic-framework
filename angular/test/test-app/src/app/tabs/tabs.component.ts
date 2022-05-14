@@ -12,4 +12,21 @@ export class TabsComponent {
     this.tabCounter++;
     this.tabEvent = ev.tab;
   }
+
+  // ionViewWillEnter() {
+  //   console.log( this.constructor.name, 'ionViewWillEnter');
+  // }
+  // ionViewDidEnter() {
+  //   console.log( this.constructor.name, 'ionViewDidEnter');
+  // }
+  // ionViewWillLeave() {
+  //   console.log( this.constructor.name, 'ionViewWillLeave');
+  // }
+  // ionViewDidLeave() {
+  //   console.log( this.constructor.name, 'ionViewDidLeave');
+  // }
+  // tslint:disable-next-line:use-lifecycle-interface
+  ngOnDestroy() {
+    console.log( this.constructor.name, 'ngOnDestroy');
+  }
 }

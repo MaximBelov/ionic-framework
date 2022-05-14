@@ -30,6 +30,8 @@ import { NavigationPage1Component } from './navigation-page1/navigation-page1.co
 import { NavigationPage2Component } from './navigation-page2/navigation-page2.component';
 import { NavigationPage3Component } from './navigation-page3/navigation-page3.component';
 import { AlertComponent } from './alert/alert.component';
+import { CanActivateGuard } from './can-activate';
+import { CanActivateChildrenGuard } from './can-activate-children';
 
 @NgModule({
   declarations: [
@@ -71,6 +73,8 @@ import { AlertComponent } from './alert/alert.component';
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    CanActivateGuard,
+    CanActivateChildrenGuard
   ],
   bootstrap: [AppComponent]
 })
