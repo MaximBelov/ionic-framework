@@ -4,11 +4,13 @@ import { TabsComponent } from './tabs.component';
 import { TabsTab1NestedComponent } from '../tabs-tab1-nested/tabs-tab1-nested.component';
 import { TabsTab1Component } from '../tabs-tab1/tabs-tab1.component';
 import { TabsTab2Component } from '../tabs-tab2/tabs-tab2.component';
+import { IonRouterOutletHooks } from '../ion-router-outlet-hooks';
 
 const routes: Routes = [
   {
     path: '',
     component: TabsComponent,
+    canDeactivate: [IonRouterOutletHooks],
     children: [
       {
         path: 'account',
@@ -48,5 +50,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
+  providers: [IonRouterOutletHooks]
 })
 export class TabsPageRoutingModule {}

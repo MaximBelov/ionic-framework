@@ -20,4 +20,20 @@ export class ViewChildComponent implements AfterViewInit {
       this.div.nativeElement.textContent = 'all found';
     }
   }
+
+  ionViewWillEnter() {
+    console.log( this.constructor.name, 'ionViewWillEnter');
+  }
+  ionViewDidEnter() {
+    // console.log( this.constructor.name, 'ionViewDidEnter');
+  }
+  ionViewWillLeave() {
+    console.log( this.constructor.name, 'ionViewWillLeave');
+  }
+  ionViewDidLeave() {
+    // console.log( this.constructor.name, 'ionViewDidLeave');
+  }
+  ngOnDestroy() {
+    console.log( this.constructor.name, 'ngOnDestroy');
+  }
 }

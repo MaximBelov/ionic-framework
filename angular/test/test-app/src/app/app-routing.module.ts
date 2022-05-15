@@ -20,6 +20,7 @@ import { NavigationPage1Component } from './navigation-page1/navigation-page1.co
 import { NavigationPage2Component } from './navigation-page2/navigation-page2.component';
 import { NavigationPage3Component } from './navigation-page3/navigation-page3.component';
 import { AlertComponent } from './alert/alert.component';
+import { IonRouterOutletHooks } from './ion-router-outlet-hooks';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -52,14 +53,20 @@ const routes: Routes = [
   {
     path: 'nested-outlet',
     component: NestedOutletComponent,
+    canDeactivate: [IonRouterOutletHooks],
     children: [
       {
         path: 'page',
-        component: NestedOutletPageComponent
+        component: NestedOutletPageComponent,
       },
       {
         path: 'page2',
-        component: NestedOutletPage2Component
+        component: NestedOutletPage2Component,
+      },
+      {
+        path: 'page2',
+        component: NestedOutletPage2Component,
+        outlet: 'secondary',
       }
     ]
   }
@@ -67,6 +74,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [IonRouterOutletHooks]
 })
 export class AppRoutingModule { }

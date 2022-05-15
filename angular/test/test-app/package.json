@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "ng": "ng",
-    "start": "npm run sync && ng serve",
+    "start": "ng serve --port 4201",
     "sync:build": "sh scripts/build-ionic.sh",
     "sync": "sh scripts/sync.sh",
     "build": "npm run sync && ng build --prod --no-progress",
